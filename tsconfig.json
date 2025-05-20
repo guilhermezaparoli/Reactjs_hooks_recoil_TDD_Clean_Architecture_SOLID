@@ -12,11 +12,7 @@
       "@/*": ["*"]
     },
     "allowJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "resolveJsonModule": true
   },
   "include": ["src"]
 }

@@ -7,6 +7,11 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default defineConfig([
   {
+    settings: {
+      "react": {
+        "version": "detect "
+      }
+    },
     files: ['**/*.{jsx,tsx}'],
     plugins: { js },
     extends: ['js/recommended']
@@ -17,5 +22,13 @@ export default defineConfig([
   },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  eslintConfigPrettier
+  eslintConfigPrettier,
+  {
+    rules: {
+      "@typescript-eslint/consistent-type-dfinitions": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error",
+    }
+  }
 ]);
