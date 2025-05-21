@@ -1,6 +1,9 @@
-import path from "node:path"
-import { CleanWebpackPlugin } from "clean-webpack-plugin"
+/* eslint-disable @typescript-eslint/no-require-imports */
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
+
+/** @type {import('webpack').Configuration} */ //
 module.exports = {
     mode: "development",
     entry: "./src/main/index.tsx",
@@ -10,7 +13,7 @@ module.exports = {
         filename: "bundle.js"
     },
     resolve: {
-        extension: [".ts", ".tsx", "js", "scss"],
+        extensions: [".ts", ".tsx", ".js", "scss"],
         alias: {
             "@": path.join(__dirname, "src")
         }
@@ -40,8 +43,12 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: "./public",
-        writeToDisk: true,
+        static: {
+            directory: "./public"
+        },
+        devMiddleware: {
+            writeToDisk: true
+        },
         historyApiFallback: true
     },
     externals: {
