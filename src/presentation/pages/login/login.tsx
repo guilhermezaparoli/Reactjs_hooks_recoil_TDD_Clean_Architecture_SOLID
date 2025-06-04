@@ -5,6 +5,7 @@ import React from 'react'
 import Spinner from "./components/spinner/spinner";
 import Header from "./components/login-header/login-header";
 import Footer from "./components/footer/footer";
+import Input from "./components/input/input";
 
 
 
@@ -15,8 +16,8 @@ const Login: React.FC = () => {
       <Header/>
       <form data-testid="form" className={Styles.form}>
         <h2>Login</h2>
-        <input type="email" name="email" placeholder="Digite seu e-mail" />
-        <input type="password" name="password" placeholder="Digite sua senha" />
+        <Input type="email" name="email" placeholder="Digite seu e-mail" />
+        <Input type="password" name="password" placeholder="Digite sua senha" />
         <button data-testid="submit"  type="submit">Entrar</button>
         <Link data-testid="signup-link" to="/signup" className={Styles.link}>Criar conta</Link>
         {/* <FormStatus /> */}
