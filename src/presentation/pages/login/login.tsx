@@ -1,11 +1,11 @@
 
+import React from 'react';
 import { Link } from "react-router-dom";
-import Styles from "./login-styles.scss";
-import React from 'react'
-import Spinner from "./components/spinner/spinner";
-import Header from "./components/login-header/login-header";
 import Footer from "./components/footer/footer";
+import FormStatus from "./components/form-status/form-status";
 import Input from "./components/input/input";
+import Header from "./components/login-header/login-header";
+import Styles from "./login-styles.scss";
 
 
 
@@ -20,8 +20,8 @@ const Login: React.FC = () => {
         <Input type="password" name="password" placeholder="Digite sua senha" />
         <button data-testid="submit"  type="submit">Entrar</button>
         <Link data-testid="signup-link" to="/signup" className={Styles.link}>Criar conta</Link>
-        {/* <FormStatus /> */}
-        <Spinner/>
+        <FormStatus />
+        
       </form>
       <Footer/>
     </div>
