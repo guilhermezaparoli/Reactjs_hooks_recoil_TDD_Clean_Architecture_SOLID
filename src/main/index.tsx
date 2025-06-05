@@ -1,4 +1,4 @@
-import { Router } from '@/presentation/routes/routes'
+import { Router } from '@/presentation/router/routes'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'

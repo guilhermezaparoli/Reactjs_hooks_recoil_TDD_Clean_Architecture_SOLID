@@ -1,25 +1,33 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Styles from "./login-styles.scss";
-import { Link } from "react-router-dom";
 import { Footer, FormStatus, Input, LoginHeader } from "../../components";
+import Context from '@/presentation/contexts/form/form-context';
 
-
+type StateProps = {
+  isLoading: boolean
+  errorMessage: string
+}
 
 const Login: React.FC = () => {
-
+  const [state] = useState<StateProps>({
+    isLoading: false,
+    errorMessage: ''
+  })
   return (
     <div className={Styles.loginWrap}>
       <LoginHeader />
-      <form data-testid="form" className={Styles.form}>
-        <h2>Login</h2>
-        <Input type="email" name="email" placeholder="Digite seu e-mail" />
-        <Input type="password" name="password" placeholder="Digite sua senha" />
-        <button data-testid="submit" type="submit">Entrar</button>
-        <Link data-testid="signup-link" to="/signup" className={Styles.link}>Criar conta</Link>
-        <FormStatus />
+      <Context.Provider value={state}>
+        <form data-testid="form" className={Styles.form}>
+          <h2>Login</h2>
+          <Input type="email" name="email" placeholder="Digite seu e-mail" />
+          <Input type="password" name="password" placeholder="Digite sua senha" />
+          <button data-testid="submit" type="submit">Entrar</button>
+          <a data-testid="signup-link" href="/signup" className={Styles.link}>Criar conta</a>
+          <FormStatus />
 
-      </form>
+        </form>
+      </Context.Provider>
       <Footer />
     </div>
   )
